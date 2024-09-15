@@ -1,0 +1,41 @@
+<main>
+  <div class="max-w-4xl mx-auto p-8 mt-10 bg-white shadow-md rounded-lg">
+
+    <!-- Title -->
+    <h1 class="text-3xl font-bold text-center text-blue-600 mb-8">Stimulus Response Experiment Rules</h1>
+
+    <!-- Rule 1: Stimulus Display -->
+    <div class="mb-6">
+      <h2 class="text-xl font-semibold text-gray-800">Rule 1: Stimulus Display</h2>
+      <ul class="list-disc list-inside text-gray-700 mt-2">
+        <li>Display one stimulus at a time.</li>
+        <li>Each stimulus will either be Red, Green, or Blue.</li>
+        <li>The stimulus will be displayed for a random or fixed amount of time (e.g., 2-3 seconds).</li>
+      </ul>
+    </div>
+
+    <div class="mb-6">
+      <h2 class="text-xl font-semibold text-gray-800">Rule 2: User Response</h2>
+      <ul class="list-disc list-inside text-gray-700 mt-2">
+        <li>The user must press the corresponding key for the displayed color:</li>
+        <ul class="list-inside text-gray-600 mt-1">
+          <li>If the stimulus is Red, press <strong class="text-red-600">1</strong>.</li>
+          <li>If the stimulus is Green, press <strong class="text-green-600">2</strong>.</li>
+          <li>If the stimulus is Blue, press <strong class="text-blue-600">3</strong>.</li>
+        </ul>
+        <li>The response must be given within a fixed time window (e.g., 1-2 seconds after the stimulus is shown).</li>
+      </ul>
+    </div>
+
+    <!-- Rule 3: Response Validation -->
+    <div class="mb-6">
+      <h2 class="text-xl font-semibold text-gray-800">Rule 3: Response Validation</h2>
+      <ul class="list-disc list-inside text-gray-700 mt-2">
+        <li>Check if the user's response matches the displayed stimulus.</li>
+        <li>Log the response along with the reaction time.</li>
+        <li>Record both the reaction time and whether the response was correct or incorrect.</li>
+      </ul>
+    </div>
+<a routerLink="experiment" class=" my-auto m-2" >      <button class="p-3 rounded border-2 h-14">Start expirement</button></a>
+  </div>
+</main>
