@@ -71,8 +71,8 @@ export class ExperimentComponent {
         this.result.push({
           index: this.rounds,
           input: this.currentStimulus,
-          isCorrect: 'no key stroke',
-          keyPressed:'nothing',
+          isCorrect: 'no key stroke ',
+          keyPressed:'nothing....',
           expected: this.stimulusMap[this.currentStimulus],
           time: 0
         })
@@ -92,7 +92,7 @@ export class ExperimentComponent {
     }
   }
   startExperiment() {
-    console.log("Experiment started...");
+    console.log("Experiment started..");
     this.started = true;
     this.experiment();
     this.expCountdownInterval = setInterval(this.experiment, 3000); // Stimulus change interval
