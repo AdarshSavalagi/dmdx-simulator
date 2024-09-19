@@ -1,5 +1,6 @@
 import {Component, HostListener} from '@angular/core';
 import {StimulusMap} from '../../types/StimulsMap'
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-experiment',
   standalone: true,
@@ -27,7 +28,8 @@ export class ExperimentComponent {
     correctCount:0
   }
 
-  constructor() {
+  constructor(private router:Router) {
+
     this.startCountdown();
     setTimeout(() => {
       this.isLoading = false;
@@ -55,7 +57,7 @@ export class ExperimentComponent {
         isCorrect: this.stimulusMap[this.currentStimulus] === +event.key,
         keyPressed: event.key,
         expected: this.stimulusMap[this.currentStimulus],
-        time: Date.now() - (this.tempTime || Date.now()) // Default to now if tempTime is undefined
+        time:( Date.now() - (this.tempTime || Date.now()))* ((this.stimulusMap[this.currentStimulus] === +event.key)?1:-1)
       });
     }
   }
@@ -72,7 +74,7 @@ export class ExperimentComponent {
           index: this.rounds,
           input: this.currentStimulus,
           isCorrect: 'no key stroke ',
-          keyPressed:'nothing....',
+          keyPressed:'nothing',
           expected: this.stimulusMap[this.currentStimulus],
           time: 0
         })
@@ -118,13 +120,13 @@ export class ExperimentComponent {
 
     for (const entry of this.result) {
       // Calculate min and max time
-      if (this.report.minTime === undefined || entry.time < this.report.minTime) {
-        this.report.minTime = entry.time;
+      if (this.report.minTime === undefined || entry.time < Math.abs(this.report.minTime)) {
+        this.report.minTime = Math.abs(entry.time);
       }
-      if (this.report.maxTime === undefined || entry.time > this.report.maxTime) {
-        this.report.maxTime = entry.time;
+      if (this.report.maxTime === undefined || entry.time > Math.abs(this.report.maxTime)) {
+        this.report.maxTime = Math.abs(entry.time);
       }
-      totalTime += entry.time;
+      totalTime +=Math.abs(entry.time);
       if (entry.isCorrect === true) {
         this.report.correctCount++;
       }
