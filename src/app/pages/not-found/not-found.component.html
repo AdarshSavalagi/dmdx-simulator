@@ -1,0 +1,11 @@
+<div class="not-found-container w-full ">
+    <div class="w-full flex justify-center"><ng-lottie
+      [options]="lottieConfig"
+      width="300px"
+      height="300px"
+      (animationCreated)="animationCreated($event)">
+    </ng-lottie></div>
+  <h1>404 - Page Not Found</h1>
+  <p>The page you're looking for doesn't exist.</p>
+  <button (click)="goBack()">Go Back</button>
+</div>
